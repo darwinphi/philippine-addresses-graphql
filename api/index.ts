@@ -1,6 +1,9 @@
 import { regions, provinces, cities } from "./data";
 import { ApolloServer, gql } from "apollo-server-express";
-import { ApolloServerPluginDrainHttpServer } from "apollo-server-core";
+import {
+  ApolloServerPluginDrainHttpServer,
+  ApolloServerPluginLandingPageGraphQLPlayground,
+} from "apollo-server-core";
 import http, { Server } from "http";
 import express, { Express } from "express";
 import cors from "cors";
@@ -54,7 +57,10 @@ const startApolloServer = async (app: Express, httpServer: Server) => {
   const server = new ApolloServer({
     typeDefs,
     resolvers,
-    plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+    plugins: [
+      ApolloServerPluginLandingPageGraphQLPlayground(),
+      ApolloServerPluginDrainHttpServer({ httpServer }),
+    ],
     introspection: true,
   });
 
