@@ -4,6 +4,7 @@
 </div>
 
 <h1 align="center"/>Philippine Addresses GraphQL API</h1>
+<img src="https://img.shields.io/github/deployments/darwinphi/philippine-addresses-graphql/production?label=vercel&logo=vercel&logoColor=white&style=plastic"/>
 
 
 Access data based on regions, provinces, cities and barangays in the Philippines.
