@@ -4,17 +4,18 @@
 </div>
 
 <h1 align="center"/>Philippine Addresses GraphQL API</h1>
+<img src="https://img.shields.io/github/deployments/darwinphi/philippine-addresses-graphql/production?label=vercel&logo=vercel&logoColor=white&style=plastic"/>
 
 
 Access data based on regions, provinces, cities and barangays in the Philippines.
-Check the full schema [here.](https://philippines-address-graphql.vercel.app/)
+Check the full schema [here.](https://ph-addresses-api.vercel.app/graphql)
 
 ## Usage
 ### Using curl
 ```
-curl  --location --request POST 'https://philippines-address-graphql.vercel.app/' \
+curl  --location --request POST 'https://ph-addresses-api.vercel.app/graphql' \
       --header 'Content-Type: application/json' \
-      --data '{"query": "query { regions { regionName, regionCode } }"}'
+      --data '{"query": "query { regions { regionName } }"}'
 ```
 ### Queries
 ```
@@ -22,6 +23,8 @@ query {
   regions {
     regionName
     regionCode
+    numOfProvinces
+    numOfMunicipalities
   }
 }
 ```
