@@ -7,14 +7,14 @@
 
 
 Access data based on regions, provinces, cities and barangays in the Philippines.
-Check the full schema [here.](https://philippines-address-graphql.vercel.app/graphql)
+Check the full schema [here.](https://ph-addresses-api.vercel.app/graphql)
 
 ## Usage
 ### Using curl
 ```
-curl  --location --request POST 'https://philippines-address-graphql.vercel.app/graphql' \
+curl  --location --request POST 'https://ph-addresses-api.vercel.app/graphql' \
       --header 'Content-Type: application/json' \
-      --data '{"query": "query { regions { regionName, regionCode } }"}'
+      --data '{"query": "query { regions { regionName } }"}'
 ```
 ### Queries
 ```
