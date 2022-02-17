@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@saeris/apollo-server-vercel": "^1.0.1",
     "apollo-server": "^3.6.3"
   },
   "devDependencies": {

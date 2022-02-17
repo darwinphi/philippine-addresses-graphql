@@ -1,7 +1,7 @@
-import { ApolloServer, gql } from "apollo-server";
+import { ApolloServer } from "@saeris/apollo-server-vercel";
 import { regions, provinces, cities } from "./data";
 
-const typeDefs = gql`
+const typeDefs = `
   type Region {
     psgcCode: String
     regionName: String
@@ -41,5 +41,10 @@ const resolvers = {
   },
 };
 
-const server = new ApolloServer({ typeDefs, resolvers });
-server.listen().then(({ url }) => console.log("🚀 Server is ready at", url));
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  playground: true,
+  introspection: true,
+});
+export default server.createHandler();
