@@ -1,5 +1,4 @@
-import { regions, provinces, cities } from "./data";
-import { ApolloServer, gql } from "apollo-server-express";
+import { ApolloServer } from "apollo-server-express";
 import {
   ApolloServerPluginDrainHttpServer,
   ApolloServerPluginLandingPageGraphQLPlayground,
@@ -7,51 +6,13 @@ import {
 import http, { Server } from "http";
 import express, { Express } from "express";
 import cors from "cors";
+import { resolvers } from "./resolvers";
+import { typeDefs } from "./typeDefs";
 
 const app: Express = express();
 app.use(cors());
 app.use(express.json());
 const httpServer: Server = http.createServer(app);
-
-const typeDefs = gql`
-  type Region {
-    psgcCode: String
-    regionName: String
-    regionCode: String
-    numOfProvinces: Int
-    numOfMunicipalities: Int
-    numOfBrgys: Int
-  }
-
-  type Province {
-    provinceCode: String
-    provinceName: String
-    psgcCode: String
-    regionCode: String
-  }
-
-  type City {
-    cityCode: String
-    cityName: String
-    provinceCode: String
-    psgcCode: String
-    regionCode: String
-  }
-
-  type Query {
-    regions: [Region]
-    provinces: [Province]
-    cities: [City]
-  }
-`;
-
-const resolvers = {
-  Query: {
-    regions: () => regions,
-    provinces: () => provinces,
-    cities: () => cities,
-  },
-};
 
 const startApolloServer = async (app: Express, httpServer: Server) => {
   const server = new ApolloServer({
