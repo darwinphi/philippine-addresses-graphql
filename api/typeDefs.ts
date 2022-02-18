@@ -25,10 +25,19 @@ export const typeDefs = gql`
     regionCode: String
   }
 
+  type Barangay {
+    brgyCode: String
+    brgyName: String
+    cityCode: String
+    provinceCode: String
+    regionCode: String
+  }
+
   type Query {
     regions: [Region]
     provinces: [Province]
     cities: [City]
+    barangays: [Barangay]
     provincesByRegion(regionCode: String!): [Province]
     citiesByProvince(provinceCode: String!): [City]
   }

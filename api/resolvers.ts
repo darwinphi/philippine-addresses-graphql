@@ -1,5 +1,4 @@
-import { regions, provinces } from "./data";
-import { default as cities } from "./data/cities.json";
+import { regions, provinces, cities, barangays } from "./data";
 
 interface IRegionCode {
   regionCode: string;
@@ -33,6 +32,7 @@ export const resolvers = {
   Query: {
     regions: () => regions,
     provinces: () => provinces,
+    barangays: () => barangays,
     cities: () => cities,
     provincesByRegion: (_: string, { regionCode }: IRegionCode) =>
       filterAddress(provinces, regionCode, AddressCode.regionCode),
