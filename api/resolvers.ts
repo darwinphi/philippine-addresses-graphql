@@ -8,14 +8,20 @@ interface IProvinceCode {
   provinceCode: string;
 }
 
+interface ICityCode {
+  cityCode: string;
+}
+
 interface IAddress {
   regionCode: string;
-  provinceCode: string;
+  provinceCode?: string;
+  cityCode?: string;
 }
 
 enum AddressCode {
   regionCode = "regionCode",
   provinceCode = "provinceCode",
+  cityCode = "cityCode",
 }
 
 const filterAddress = (
@@ -32,11 +38,13 @@ export const resolvers = {
   Query: {
     regions: () => regions,
     provinces: () => provinces,
-    barangays: () => barangays,
     cities: () => cities,
+    barangays: () => barangays,
     provincesByRegion: (_: string, { regionCode }: IRegionCode) =>
       filterAddress(provinces, regionCode, AddressCode.regionCode),
     citiesByProvince: (_: string, { provinceCode }: IProvinceCode) =>
       filterAddress(cities, provinceCode, AddressCode.provinceCode),
+    barangaysByCity: (_: string, { cityCode }: ICityCode) =>
+      filterAddress(barangays, cityCode, AddressCode.cityCode),
   },
 };

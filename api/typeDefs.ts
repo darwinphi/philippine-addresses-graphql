@@ -40,5 +40,6 @@ export const typeDefs = gql`
     barangays: [Barangay]
     provincesByRegion(regionCode: String!): [Province]
     citiesByProvince(provinceCode: String!): [City]
+    barangaysByCity(cityCode: String!): [Barangay]
   }
 `;
