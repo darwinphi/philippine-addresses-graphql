@@ -1,14 +1,31 @@
 import { regions, provinces, cities } from "./data";
 
-interface RegionCode {
+interface IRegionCode {
   regionCode: string;
 }
 
-const provincesByRegion = (regionCode: string) => {
-  const result = provinces.filter((province) => {
-    return province.regionCode === regionCode;
-  });
-  return result;
+interface IProvinceCode {
+  provinceCode: string;
+}
+
+interface IAddress {
+  regionCode: string;
+  provinceCode: string;
+}
+
+enum AddressCode {
+  regionCode = "regionCode",
+  provinceCode = "provinceCode",
+}
+
+const filterAddress = (
+  addresses: IAddress[],
+  code: string,
+  key: AddressCode
+) => {
+  return addresses.filter(
+    (addr: IAddress) => addr[key as keyof IAddress] === code
+  );
 };
 
 export const resolvers = {
@@ -16,7 +33,9 @@ export const resolvers = {
     regions: () => regions,
     provinces: () => provinces,
     cities: () => cities,
-    provincesByRegion: (_: string, { regionCode }: RegionCode) =>
-      provincesByRegion(regionCode),
+    provincesByRegion: (_: string, { regionCode }: IRegionCode) =>
+      filterAddress(provinces, regionCode, AddressCode.regionCode),
+    citiesByProvince: (_: string, { provinceCode }: IProvinceCode) =>
+      filterAddress(cities, provinceCode, AddressCode.provinceCode),
   },
 };

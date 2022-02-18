@@ -30,5 +30,6 @@ export const typeDefs = gql`
     provinces: [Province]
     cities: [City]
     provincesByRegion(regionCode: String!): [Province]
+    citiesByProvince(provinceCode: String!): [City]
   }
 `;
