@@ -1,4 +1,5 @@
-import { regions, provinces, cities } from "./data";
+import { regions, provinces } from "./data";
+import { default as cities } from "./data/cities.json";
 
 interface IRegionCode {
   regionCode: string;
