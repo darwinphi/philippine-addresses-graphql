@@ -10,6 +10,18 @@
 Access data based on regions, provinces, cities and barangays in the Philippines.
 Check the full schema [here.](https://ph-addresses-api.vercel.app/graphql)
 
+## 📦 Installation
+In local development
+```
+git clone git@github.com:darwinphi/philippine-addresses-graphql.git
+```
+Install dependecies...
+```
+npm install
+```
+...then open [http://localhost:4000/graphql](http://localhost:4000/graphql)
+
+
 ## 🔧 Usage
 ### Using curl
 ```
@@ -18,53 +30,78 @@ curl  --location --request POST 'https://ph-addresses-api.vercel.app/graphql' \
       --data '{"query": "query { regions { regionName } }"}'
 ```
 ### Queries
-- All `Regions`
-```sh
-regions {
-  regionName
-  ...
-}
-```
-- All `Provinces`
-```
-provinces {
-  provinceName
-  ...
-}
-```
-- All `Cities`
-```
-cities {
-  cityName
-  ...
-}
-```
-- All `Barangays`
-```
-barangays {
-  brgyName
-  ...
-}
-```
-- Get `Provinces` by `Region`
-```
-provinceByRegion(regionCode: String!) {
-  provinceName
-  ...
-}
-```
-- Get `Cities` by `Province`
-```
-citiesByProvince(provinceCode: String!) {
-  cityName
-  ...
-}
-```
-- Get `Barangays` by `City`
-```
-barangasByCity(cityCode: String!) {
-  cityName
-  ...
-}
-```
-**This API is still under development.*
+<details>
+  <summary>All Regions</summary>
+  
+  ```
+  regions {
+    regionName
+    ...
+  }
+  ```
+</details>
+<details>
+  <summary>All Provinces</summary>
+  
+  ```
+  provinces {
+    provinceName
+    ...
+  }
+  ```
+</details>
+<details>
+  <summary>All Cities</summary>
+  
+  ```
+  cities {
+    cityName
+    ...
+  }
+  ```
+</details>
+<details>
+  <summary>All Barangays</summary>
+  
+  ```
+  barangays {
+    brgyName
+    ...
+  }
+  ```
+</details>
+<details>
+  <summary>Get Provinces by Region</summary>
+  
+  ```
+  provinceByRegion(regionCode: String!) {
+    provinceName
+    ...
+  }
+  ```
+</details>
+<details>
+  <summary>Get Cities by Province</summary>
+  
+  ```
+  citiesByProvince(provinceCode: String!) {
+    cityName
+    ...
+  }
+  ```
+</details>
+<details>
+  <summary>Get Barangays by City</summary>
+  
+  ```
+  barangasByCity(cityCode: String!) {
+    cityName
+    ...
+  }
+  ```
+</details>
+
+
+
+
+*🚧 This API is still under development.*
