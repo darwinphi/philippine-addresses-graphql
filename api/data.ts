@@ -1,7 +1,5 @@
 import fs from "fs";
 import path from "path";
-import provinces from "./data/provinces";
-import regions from "./data/regions";
 
 const getData = (filename: string) => {
   const jsonPath = path.join(__dirname, "data", filename);
@@ -11,5 +9,7 @@ const getData = (filename: string) => {
 
 const barangays: Barangay[] = getData("barangays.json");
 const cities: City[] = getData("cities.json");
+const provinces: Province[] = getData("provinces.json");
+const regions: Region[] = getData("regions.json");
 
 export { provinces, regions, cities, barangays };
