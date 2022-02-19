@@ -1,23 +1,5 @@
 import { regions, provinces, cities, barangays } from "./data";
 
-interface IRegionCode {
-  regionCode: string;
-}
-
-interface IProvinceCode {
-  provinceCode: string;
-}
-
-interface ICityCode {
-  cityCode: string;
-}
-
-interface IAddress {
-  regionCode: string;
-  provinceCode?: string;
-  cityCode?: string;
-}
-
 enum AddressCode {
   regionCode = "regionCode",
   provinceCode = "provinceCode",
@@ -25,12 +7,12 @@ enum AddressCode {
 }
 
 const filterAddress = (
-  addresses: IAddress[],
+  addresses: Address[],
   code: string,
   key: AddressCode
 ) => {
   return addresses.filter(
-    (addr: IAddress) => addr[key as keyof IAddress] === code
+    (addr: Address) => addr[key as keyof Address] === code
   );
 };
 
@@ -40,11 +22,11 @@ export const resolvers = {
     provinces: () => provinces,
     cities: () => cities,
     barangays: () => barangays,
-    provincesByRegion: (_: string, { regionCode }: IRegionCode) =>
+    provincesByRegion: (_: string, { regionCode }: { regionCode: string }) =>
       filterAddress(provinces, regionCode, AddressCode.regionCode),
-    citiesByProvince: (_: string, { provinceCode }: IProvinceCode) =>
+    citiesByProvince: (_: string, { provinceCode }: { provinceCode: string }) =>
       filterAddress(cities, provinceCode, AddressCode.provinceCode),
-    barangaysByCity: (_: string, { cityCode }: ICityCode) =>
+    barangaysByCity: (_: string, { cityCode }: { cityCode: string }) =>
       filterAddress(barangays, cityCode, AddressCode.cityCode),
   },
 };

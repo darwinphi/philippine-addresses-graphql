@@ -1,14 +1,4 @@
-interface IRegion {
-  psgcCode: string;
-  regionName: string;
-  regionCode: string;
-  numOfProvinces: number;
-  numOfCities: number;
-  numOfMunicipalities: number;
-  numOfBrgys: number;
-}
-
-const regions: IRegion[] = [
+const regions = [
   {
     psgcCode: "010000000",
     regionName: "Region I (Ilocos Region)",

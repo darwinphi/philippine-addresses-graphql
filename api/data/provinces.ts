@@ -1,11 +1,4 @@
-interface IProvince {
-  provinceCode: string;
-  provinceName: string;
-  psgcCode: string;
-  regionCode: string;
-}
-
-const provinces: IProvince[] = [
+const provinces = [
   {
     provinceCode: "0128",
     provinceName: "Ilocos Norte",
