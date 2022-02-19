@@ -10,7 +10,7 @@
 Access data based on regions, provinces, cities and barangays in the Philippines.
 Check the full schema [here.](https://ph-addresses-api.vercel.app/graphql)
 
-## Usage
+## 🔧 Usage
 ### Using curl
 ```
 curl  --location --request POST 'https://ph-addresses-api.vercel.app/graphql' \
@@ -18,30 +18,53 @@ curl  --location --request POST 'https://ph-addresses-api.vercel.app/graphql' \
       --data '{"query": "query { regions { regionName } }"}'
 ```
 ### Queries
-```
-query {
-  regions {
-    regionName
-    regionCode
-    numOfProvinces
-    numOfMunicipalities
-  }
+- All `Regions`
+```sh
+regions {
+  regionName
+  ...
 }
 ```
+- All `Provinces`
 ```
-query {
-  provinces {
-    provinceName
-  }
+provinces {
+  provinceName
+  ...
 }
 ```
+- All `Cities`
 ```
-query {
-  cities {
-    cityName
-  }
+cities {
+  cityName
+  ...
 }
 ```
-
-
+- All `Barangays`
+```
+barangays {
+  brgyName
+  ...
+}
+```
+- Get `Provinces` by `Region`
+```
+provinceByRegion(regionCode: String!) {
+  provinceName
+  ...
+}
+```
+- Get `Cities` by `Province`
+```
+citiesByProvince(provinceCode: String!) {
+  cityName
+  ...
+}
+```
+- Get `Barangays` by `City`
+```
+barangasByCity(cityCode: String!) {
+  cityName
+  ...
+}
+```
 **This API is still under development.*
