@@ -116,6 +116,27 @@ curl  --location --request POST 'https://ph-addresses-api.vercel.app/graphql' \
     }
   }
   ```
+  ```
+  addresses(regionCode: String!) {
+    provinces {
+      provinceName
+    }
+  }
+  ```
+  ```
+  addresses(regionCode: String!) {
+    cities {
+      cityName
+    }
+  }
+  ```
+  ```
+  addresses(regionCode: String!) {
+    barangays {
+      brgyName
+    }
+  }
+  ```
 </details>
 
 ## Data Source
