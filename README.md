@@ -100,6 +100,23 @@ curl  --location --request POST 'https://ph-addresses-api.vercel.app/graphql' \
   }
   ```
 </details>
+<details>
+  <summary>Get All Addresses by Region</summary>
+  
+  ```
+  addresses(regionCode: String!) {
+    provinces {
+      provinceName
+    }
+    cities {
+      cityName
+    }
+    barangays {
+      brgyName
+    }
+  }
+  ```
+</details>
 
 ## Data Source
 [<img src="https://psa.gov.ph/sites/default/files/kmcd/psa%20logo.png" width="120" />](https://psa.gov.ph/)
