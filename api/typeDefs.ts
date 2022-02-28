@@ -33,6 +33,12 @@ export const typeDefs = gql`
     regionCode: String
   }
 
+  type Addresses {
+    cities: [City]
+    provinces: [Province]
+    barangays: [Barangay]
+  }
+
   type Query {
     regions: [Region]
     provinces: [Province]
@@ -41,5 +47,6 @@ export const typeDefs = gql`
     provincesByRegion(regionCode: String!): [Province]
     citiesByProvince(provinceCode: String!): [City]
     barangaysByCity(cityCode: String!): [Barangay]
+    addressesByRegion(regionCode: String!): Addresses
   }
 `;
