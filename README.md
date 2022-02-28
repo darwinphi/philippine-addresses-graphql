@@ -105,3 +105,6 @@ curl  --location --request POST 'https://ph-addresses-api.vercel.app/graphql' \
 [<img src="https://psa.gov.ph/sites/default/files/kmcd/psa%20logo.png" width="120" />](https://psa.gov.ph/)
 
 [Philippine Statistics Authority](https://psa.gov.ph/)
+
+## License
+This project is under [MIT License](https://github.com/darwinphi/philippine-addresses-graphql/blob/main/LICENSE.md)
